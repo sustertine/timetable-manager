@@ -2,6 +2,7 @@ import Timetable from "@/components/timetable";
 import {Activity} from "@/models/activity.model";
 import TopNav from "@/components/top-nav";
 import {Day} from "@/models/day.enum";
+import {Separator} from "@/components/ui/separator";
 
 export default function Home() {
     const activities: Activity[] = [
@@ -64,8 +65,9 @@ export default function Home() {
     ];
   return (
       <div className="flex flex-col h-screen">
-        <header>
+        <header className="sticky top-0 z-50 bg-background bg-opacity-0">
             <TopNav />
+            <Separator />
         </header>
         <div className="flex flex-grow md:flex-row flex-col">
           <aside className="bg-green-200 md:w-64 w-full">Sidebar</aside>
