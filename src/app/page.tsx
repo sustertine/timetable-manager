@@ -20,6 +20,13 @@ export default function Home() {
             description: "Meeting to discuss the backlog."
         },
         {
+            day: Day.MONDAY,
+            startTime: new Date(2024, 1, 24, 9, 0),
+            endTime: new Date(2024, 1, 24, 13, 0),
+            title: "Anime watch party",
+            description: "Watch anime with friends."
+        },
+        {
             day: Day.TUESDAY,
             startTime: new Date(2024, 1, 25, 14, 0),
             endTime: new Date(2024, 1, 25, 16, 0),

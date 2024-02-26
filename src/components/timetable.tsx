@@ -7,6 +7,7 @@ import {Activity} from "@/models/activity.model";
 import {Card, CardTitle, CardDescription, CardContent, CardFooter, CardHeader} from '@/components/ui/card';
 import {Button} from "@/components/ui/button";
 import {Day} from "@/models/day.enum";
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
 
 const Timetable: React.FC<{ activities?: Activity[] }> = ({activities = []}) => {
     const days = [Day.MONDAY, Day.TUESDAY, Day.WEDNESDAY, Day.THURSDAY, Day.FRIDAY];
@@ -40,15 +41,25 @@ const Timetable: React.FC<{ activities?: Activity[] }> = ({activities = []}) => 
                                     const activitiesInTimeslot = activities.filter(activity => activity.day === day && activity.startTime.getHours() <= hour && activity.endTime.getHours() >= hour);
                                     return (
                                         <TableCell key={day}>
-                                            {activitiesInTimeslot.map(activity => (
-                                                <Card className="p-2 max-w-fit" key={activity.title}>
-                                                    <CardDescription>
-                                                       <b>
-                                                           {activity.title}
-                                                       </b>
-                                                    </CardDescription>
-                                                </Card>
-                                            ))}
+                                            <div className="flex flex-row">
+                                                {activitiesInTimeslot.map(activity => (
+                                                    <TooltipProvider key={activity.title}>
+                                                        <Tooltip >
+                                                            <TooltipTrigger asChild>
+                                                                <Card className="p-2 mx-1">
+                                                                    <CardDescription>{activity.title}</CardDescription>
+                                                                </Card>
+                                                            </TooltipTrigger>
+                                                            <TooltipContent>
+                                                                <p>{activity.description}</p>
+                                                                &nbsp;
+                                                                <p>G2P3-01</p>
+                                                            </TooltipContent>
+                                                        </Tooltip>
+                                                    </TooltipProvider>
+
+                                                ))}
+                                            </div>
                                         </TableCell>
                                     );
                                 })}
