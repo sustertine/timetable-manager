@@ -15,7 +15,7 @@ export default function Home() {
         {
             day: Day.MONDAY,
             startTime: new Date(2024, 1, 24, 9, 0),
-            endTime: new Date(2024, 1, 24, 11, 0),
+            endTime: new Date(2024, 1, 24, 12, 0),
             title: "Backlog meeting",
             description: "Meeting to discuss the backlog."
         },
@@ -68,13 +68,13 @@ export default function Home() {
         //     title: "Webinar",
         //     description: "Webinar on latest industry trends."
         // },
-        // {
-        //     day: Day.MONDAY,
-        //     startTime: new Date(2024, 2, 2, 9, 0),
-        //     endTime: new Date(2024, 2, 2, 10, 30),
-        //     title: "Project Review",
-        //     description: "Review progress on ongoing projects."
-        // },
+        {
+            day: Day.MONDAY,
+            startTime: new Date(2024, 2, 2, 19, 0),
+            endTime: new Date(2024, 2, 2, 20, 30),
+            title: "Project Review",
+            description: "Review progress on ongoing projects."
+        },
         // {
         //     day: Day.TUESDAY,
         //     startTime: new Date(2024, 2, 3, 16, 0),

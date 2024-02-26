@@ -10,6 +10,8 @@ import {Day} from "@/models/day.enum";
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
 
 const Timetable: React.FC<{ activities?: Activity[] }> = ({activities = []}) => {
+    activities.sort((a, b) => (b.endTime.getTime() - b.startTime.getTime()) - (a.endTime.getTime() - a.startTime.getTime()));
+
     const days = [Day.MONDAY, Day.TUESDAY, Day.WEDNESDAY, Day.THURSDAY, Day.FRIDAY];
     const minHour = activities.reduce((acc, curr) => curr.startTime.getHours() < acc ? curr.startTime.getHours() : acc, 24);
     const maxHour = activities.reduce((acc, curr) => curr.endTime.getHours() > acc ? curr.endTime.getHours() : acc, 0);
