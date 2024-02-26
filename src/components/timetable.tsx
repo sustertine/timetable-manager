@@ -37,16 +37,18 @@ const Timetable: React.FC<{ activities?: Activity[] }> = ({activities = []}) => 
                             <TableRow key={hour}>
                                 <TableCell><b>{hour}:00</b></TableCell>
                                 {days.map(day => {
-                                    const activity = activities.find(activity => activity.day === day && activity.startTime.getHours() <= hour && activity.endTime.getHours() >= hour);
+                                    const activitiesInTimeslot = activities.filter(activity => activity.day === day && activity.startTime.getHours() <= hour && activity.endTime.getHours() >= hour);
                                     return (
                                         <TableCell key={day}>
-                                            {/* Card with activity title and description*/}
-                                            {activity && (
-                                                <Card className="p-2 max-w-fit">
-                                                    <CardTitle>{activity.title}</CardTitle>
-                                                    <CardDescription>{activity.description}</CardDescription>
+                                            {activitiesInTimeslot.map(activity => (
+                                                <Card className="p-2 max-w-fit" key={activity.title}>
+                                                    <CardDescription>
+                                                       <b>
+                                                           {activity.title}
+                                                       </b>
+                                                    </CardDescription>
                                                 </Card>
-                                            )}
+                                            ))}
                                         </TableCell>
                                     );
                                 })}

@@ -33,20 +33,20 @@ export default function Home() {
             title: "Training Session",
             description: "Training session on new software tools."
         },
-        // {
-        //     day: Day.THURSDAY,
-        //     startTime: new Date(2024, 1, 27, 11, 0),
-        //     endTime: new Date(2024, 1, 27, 13, 0),
-        //     title: "Client Meeting",
-        //     description: "Meeting with potential client to discuss project requirements."
-        // },
-        // {
-        //     day: Day.FRIDAY,
-        //     startTime: new Date(2024, 1, 28, 15, 0),
-        //     endTime: new Date(2024, 1, 28, 17, 0),
-        //     title: "Team Building Activity",
-        //     description: "Team building activity at local park."
-        // },
+        {
+            day: Day.THURSDAY,
+            startTime: new Date(2024, 1, 27, 11, 0),
+            endTime: new Date(2024, 1, 27, 13, 0),
+            title: "Client Meeting",
+            description: "Meeting with potential client to discuss project requirements."
+        },
+        {
+            day: Day.FRIDAY,
+            startTime: new Date(2024, 1, 28, 15, 0),
+            endTime: new Date(2024, 1, 28, 17, 0),
+            title: "Team Building Activity",
+            description: "Team building activity at local park."
+        },
         // {
         //     day: Day.SATURDAY,
         //     startTime: new Date(2024, 1, 29, 9, 0),
