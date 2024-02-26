@@ -1,25 +1,21 @@
+"use client";
+
+
 import React from 'react';
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from './ui/table';
 import {Activity} from "@/models/activity.model";
+import { Card, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
+import {Button} from "@/components/ui/button";
 
 const Timetable: React.FC<{ activities?: Activity[] }> = ({ activities = [] }) => {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
     const generateTimeSlots = () => {
         const timeSlots = [];
-        let currentHour = 7;
-        let currentMinute = 0;
-
-        while (currentHour < 21 || (currentHour === 20 && currentMinute < 30)) {
-            const timeSlot = `${currentHour.toString().padStart(2, '0')}:${currentMinute.toString().padStart(2, '0')}`;
-            timeSlots.push(timeSlot);
-
-            currentMinute += 30;
-            if (currentMinute === 60) {
-                currentMinute = 0;
-                currentHour += 1;
-            }
+        for (let m = 420; m <= 1230; m += 30) {
+            const hours = Math.floor(m / 60);
+            const minutes = m % 60;
+            timeSlots.push(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`);
         }
-
         return timeSlots;
     };
 
@@ -31,36 +27,42 @@ const Timetable: React.FC<{ activities?: Activity[] }> = ({ activities = [] }) =
         return map;
     }, {} as Record<string, string>);
 
-    // Get today's date
     const today = new Date();
     const formattedDate = `${today.getDate()}-${today.getMonth() + 1}-${today.getFullYear()}`;
 
     return (
-        <div>
-            <h1 className="text-2xl font-bold mb-4">Timetable</h1>
-            <p className="mb-4">Today's date: {formattedDate}</p>
-            <Table>
-                <TableHeader>
-                    <TableRow>
-                        <TableHead></TableHead>
-                        {days.map((day, index) => (
-                            <TableHead key={index}>{day}</TableHead>
-                        ))}
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    {timeSlots.map((timeSlot, index) => (
-                        <TableRow key={index}>
-                            <TableCell>{timeSlot}</TableCell>
-                            {days.map((day, index) => {
-                                const activity = activityMap[`${day}-${timeSlot}`];
-                                return <TableCell key={index}>{activity}</TableCell>;
-                            })}
+        <Card className="p-3">
+            <CardTitle className="text-2xl font-bold mb-4">Timetable</CardTitle>
+            <CardDescription className="mb-4">Today's date: {formattedDate}</CardDescription>
+            <CardContent>
+                <Table>
+                    <TableHeader>
+                        <TableRow>
+                            <TableHead></TableHead>
+                            {days.map((day, index) => (
+                                <TableHead key={index}>{day}</TableHead>
+                            ))}
                         </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </div>
+                    </TableHeader>
+                    <TableBody>
+                        {timeSlots.map((timeSlot, index) => (
+                            <TableRow key={index}>
+                                <TableCell>{timeSlot}</TableCell>
+                                {days.map((day, index) => {
+                                    const activity = activityMap[`${day}-${timeSlot}`];
+                                    return <TableCell key={index}>{activity}</TableCell>;
+                                })}
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </CardContent>
+            <CardFooter className="flex flex-start space-x-4">
+                <Button onClick={() => console.log('Add activity')}>Add Activity</Button>
+                <Button onClick={() => console.log('Remove activity')}>Remove Activity</Button>
+                <Button onClick={() => console.log('Edit activity')}>Edit Activity</Button>
+            </CardFooter>
+        </Card>
     );
 };
 export default Timetable;
