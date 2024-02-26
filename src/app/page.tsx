@@ -54,41 +54,13 @@ export default function Home() {
             title: "Team Building Activity",
             description: "Team building activity at local park."
         },
-        // {
-        //     day: Day.SATURDAY,
-        //     startTime: new Date(2024, 1, 29, 9, 0),
-        //     endTime: new Date(2024, 1, 29, 12, 0),
-        //     title: "Workshop",
-        //     description: "Workshop on effective project management strategies."
-        // },
-        // {
-        //     day: Day.SUNDAY,
-        //     startTime: new Date(2024, 2, 1, 13, 0),
-        //     endTime: new Date(2024, 2, 1, 15, 0),
-        //     title: "Webinar",
-        //     description: "Webinar on latest industry trends."
-        // },
         {
             day: Day.MONDAY,
             startTime: new Date(2024, 2, 2, 19, 0),
             endTime: new Date(2024, 2, 2, 20, 30),
             title: "Project Review",
             description: "Review progress on ongoing projects."
-        },
-        // {
-        //     day: Day.TUESDAY,
-        //     startTime: new Date(2024, 2, 3, 16, 0),
-        //     endTime: new Date(2024, 2, 3, 18, 0),
-        //     title: "Brainstorming Session",
-        //     description: "Brainstorm ideas for upcoming marketing campaign."
-        // },
-        // {
-        //     day: Day.WEDNESDAY,
-        //     startTime: new Date(2024, 2, 4, 10, 0),
-        //     endTime: new Date(2024, 2, 4, 12, 0),
-        //     title: "Training Workshop",
-        //     description: "Workshop on advanced programming techniques."
-        // }
+        }
     ];
   return (
       <div className="flex flex-col h-screen">
