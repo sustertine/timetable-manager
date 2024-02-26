@@ -42,7 +42,7 @@ const Timetable: React.FC<{ activities?: Activity[] }> = ({activities = []}) => 
                                         <TableCell key={day}>
                                             {/* Card with activity title and description*/}
                                             {activity && (
-                                                <Card className="p-2">
+                                                <Card className="p-2 max-w-fit">
                                                     <CardTitle>{activity.title}</CardTitle>
                                                     <CardDescription>{activity.description}</CardDescription>
                                                 </Card>
