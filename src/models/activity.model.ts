@@ -1,5 +1,9 @@
+import {Day} from "@/models/day.enum";
+
 export interface Activity {
-    day: string;
-    time: string;
+    day: Day;
+    startTime: Date;
+    endTime: Date;
+    title: string;
     description: string;
 }
