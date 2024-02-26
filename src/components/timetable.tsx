@@ -25,35 +25,42 @@ const Timetable: React.FC<{ activities?: Activity[] }> = ({ activities = [] }) =
 
     const timeSlots = generateTimeSlots();
 
-
     const activityMap = activities.reduce((map, activity) => {
         const key = `${activity.day}-${activity.time}`;
         map[key] = activity.description;
         return map;
     }, {} as Record<string, string>);
 
+    // Get today's date
+    const today = new Date();
+    const formattedDate = `${today.getDate()}-${today.getMonth() + 1}-${today.getFullYear()}`;
+
     return (
-        <Table>
-            <TableHeader>
-                <TableRow>
-                    <TableHead></TableHead>
-                    {days.map((day, index) => (
-                        <TableHead key={index}>{day}</TableHead>
-                    ))}
-                </TableRow>
-            </TableHeader>
-            <TableBody>
-                {timeSlots.map((timeSlot, index) => (
-                    <TableRow key={index}>
-                        <TableCell>{timeSlot}</TableCell>
-                        {days.map((day, index) => {
-                            const activity = activityMap[`${day}-${timeSlot}`];
-                            return <TableCell key={index}>{activity}</TableCell>;
-                        })}
+        <div>
+            <h1 className="text-2xl font-bold mb-4">Timetable</h1>
+            <p className="mb-4">Today's date: {formattedDate}</p>
+            <Table>
+                <TableHeader>
+                    <TableRow>
+                        <TableHead></TableHead>
+                        {days.map((day, index) => (
+                            <TableHead key={index}>{day}</TableHead>
+                        ))}
                     </TableRow>
-                ))}
-            </TableBody>
-        </Table>
+                </TableHeader>
+                <TableBody>
+                    {timeSlots.map((timeSlot, index) => (
+                        <TableRow key={index}>
+                            <TableCell>{timeSlot}</TableCell>
+                            {days.map((day, index) => {
+                                const activity = activityMap[`${day}-${timeSlot}`];
+                                return <TableCell key={index}>{activity}</TableCell>;
+                            })}
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </div>
     );
 };
 export default Timetable;

@@ -1,6 +1,6 @@
 import Timetable from "@/components/timetable";
-import {ModeToggle} from "@/components/mode-toggle";
 import {Activity} from "@/models/activity.model";
+import TopNav from "@/components/top-nav";
 
 export default function Home() {
     const activities: Activity[] = [
@@ -12,13 +12,12 @@ export default function Home() {
     ];
   return (
       <div className="flex flex-col h-screen">
-        <header className="bg-blue-200">
-            Header
-            <ModeToggle />
+        <header>
+            <TopNav />
         </header>
         <div className="flex flex-grow md:flex-row flex-col">
           <aside className="bg-green-200 md:w-64 w-full">Sidebar</aside>
-          <main className="flex-grow">
+          <main className="flex-grow p-4">
               <Timetable activities={activities} />
           </main>
         </div>
