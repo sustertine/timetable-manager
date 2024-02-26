@@ -65,7 +65,7 @@ export default function Home() {
     ];
   return (
       <div className="flex flex-col h-screen">
-        <header className="sticky top-0 z-50 bg-background bg-opacity-0">
+        <header className="sticky top-0 z-50 bg-background">
             <TopNav />
             <Separator />
         </header>

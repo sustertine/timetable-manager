@@ -15,9 +15,9 @@ import {ModeToggle} from "@/components/mode-toggle";
 const TopNav = () => {
 
     return (
-            <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 bg-opacity-10">
                 <div className="flex items-center justify-between">
-                    <Image src="/next.svg" alt="Logo" width={150} height={75} className="mr-6"/>
+                    <Image src="/next.svg" alt="Logo" width={110} height={65} className="mr-6"/>
                     <h1 className="text-xl font-bold">Timetable manager</h1>
                     <NavigationMenu>
                         <NavigationMenuList>

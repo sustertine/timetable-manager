@@ -32,7 +32,11 @@ const Timetable: React.FC<{ activities?: Activity[] }> = ({activities = []}) => 
                             <TableHead>
                                 <b>Time | Day</b>
                             </TableHead>
-                            {days.map(day => <TableHead key={day}>{day}</TableHead>)}
+                            {days.map(day =>
+                                <TableHead key={day}>
+                                    <b>{day}</b>
+                                </TableHead>
+                            )}
                         </TableRow>
                     </TableHeader>
                     <TableBody>
